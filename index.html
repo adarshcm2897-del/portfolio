@@ -13,19 +13,12 @@ html{
 scroll-behavior:smooth;
 }
 
-body{
-margin:0;
-font-family:'Patrick Hand', cursive;
-background:#0b3d91;
-color:white;
-overflow-x:hidden;
-
-background-image:
-radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 1px, transparent 1px),
-radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 1px, transparent 1px),
-radial-gradient(circle at 40% 90%, rgba(255,255,255,0.03) 2px, transparent 2px);
-
-background-size:20px 20px;
+body {
+margin: 0;
+font-family: 'Patrick Hand', cursive;
+background: transparent; /* Changed to transparent so your background video is completely visible */
+color: white;
+overflow-x: hidden;
 }
 
 .hero{
@@ -296,6 +289,14 @@ height: 120px;
 
 <body>
 
+<!-- BACKGROUND VIDEO LOOP INTEGRATION -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background-color: #0b3d91;">
+    <video autoplay loop muted playsinline style="min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; opacity: 0.25;">
+        <!-- Secure reference to your file name containing spaces -->
+        <source src="bg for portfolio.mp4" type="video/mp4">
+    </video>
+</div>
+
 <div class="hero">
 
 <h1>ADARSH C MANOHARAN</h1>
@@ -323,7 +324,7 @@ height: 120px;
 <iframe
 width="100%"
 height="550"
-src="https://www.youtube.com/embed/sjjXXbiSRjk?rel=0"
+src="https://www.youtube.com/embed/sjjXXbiXXbiSRjk?rel=0"
 title="Adarsh Motion Graphics Showreel"
 frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -332,7 +333,7 @@ allowfullscreen>
 </iframe>
 </div>
 
-<!-- NEW LEFT TO RIGHT SLIDER ATTACHED UNDER THE REEL -->
+<!-- LEFT TO RIGHT TICKER ATTACHED UNDER THE YOUTUBE PLAYER -->
 <div class="ticker-wrap">
 <div class="ticker-track">
 <!-- Set 1 -->
@@ -470,3 +471,4 @@ with audiences and help brands grow.
 </body>
 
 </html>
+
