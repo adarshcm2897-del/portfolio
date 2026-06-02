@@ -137,6 +137,88 @@ background:rgba(0,0,0,0.2);
 font-size:20px;
 }
 
+/* LEFT TO RIGHT TICKER STYLING */
+.ticker-wrap {
+width: 120%;
+margin-left: -10%;
+overflow: hidden;
+background: rgba(255,255,255,0.03);
+padding: 25px 0;
+display: flex;
+border-top: 2px dashed rgba(255,255,255,0.3);
+border-bottom: 2px dashed rgba(255,255,255,0.3);
+margin-top: 40px;
+}
+
+.ticker-track {
+display: flex;
+gap: 20px;
+animation: scrollLTR 25s linear infinite;
+width: max-content;
+}
+
+.ticker-wrap:hover .ticker-track {
+animation-play-state: paused;
+}
+
+.ticker-img {
+width: 280px;
+height: 165px;
+object-fit: cover;
+border-radius: 12px;
+border: 2px solid white;
+box-shadow: 4px 4px 0px rgba(255,255,255,0.15);
+flex-shrink: 0;
+transition: transform 0.2s ease;
+}
+
+.ticker-img:hover {
+transform: scale(1.05);
+}
+
+/* PROJECTS SECTION RESPONSIVE GRID */
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.project-card {
+border: 3px dashed #fff;
+padding: 20px;
+border-radius: 15px;
+background: rgba(255,255,255,0.05);
+transition: transform 0.3s ease, background 0.3s ease;
+text-align: left;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+background: rgba(255,255,255,0.1);
+}
+
+.project-card img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
+border: 2px solid #fff;
+margin-bottom: 15px;
+}
+
+.project-card h3 {
+margin: 5px 0;
+font-size: 24px;
+}
+
+.project-card p {
+font-size: 18px;
+color: #ddd;
+margin-bottom: 15px;
+}
+
 @keyframes fadeIn{
 from{
 opacity:0;
@@ -171,6 +253,16 @@ transform:translateY(0);
 }
 }
 
+/* Left to Right seamless sliding keyframes */
+@keyframes scrollLTR {
+0% {
+transform: translateX(calc(-50% - 10px));
+}
+100% {
+transform: translateX(0);
+}
+}
+
 @media(max-width:768px){
 
 .hero h1{
@@ -191,6 +283,11 @@ font-size:34px;
 
 .skill{
 font-size:18px;
+}
+
+.ticker-img {
+width: 200px;
+height: 120px;
 }
 }
 
@@ -235,7 +332,29 @@ allowfullscreen>
 </iframe>
 </div>
 
+<!-- NEW LEFT TO RIGHT SLIDER ATTACHED UNDER THE REEL -->
+<div class="ticker-wrap">
+<div class="ticker-track">
+<!-- Set 1 -->
+<img src="Project1.png" class="ticker-img" alt="Reel Shot 1">
+<img src="Project2.png" class="ticker-img" alt="Reel Shot 2">
+<img src="Project3.png" class="ticker-img" alt="Reel Shot 3">
+<img src="Project4.png" class="ticker-img" alt="Reel Shot 4">
+<img src="Project5.png" class="ticker-img" alt="Reel Shot 5">
+<img src="Project6.png" class="ticker-img" alt="Reel Shot 6">
+
+<!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
+<img src="Project1.png" class="ticker-img" alt="Reel Shot 1 Copy">
+<img src="Project2.png" class="ticker-img" alt="Reel Shot 2 Copy">
+<img src="Project3.png" class="ticker-img" alt="Reel Shot 3 Copy">
+<img src="Project4.png" class="ticker-img" alt="Reel Shot 4 Copy">
+<img src="Project5.png" class="ticker-img" alt="Reel Shot 5 Copy">
+<img src="Project6.png" class="ticker-img" alt="Reel Shot 6 Copy">
+</div>
+</div>
+
 </section>
+
 <section>
 
 <h2>🛠 Skills</h2>
@@ -275,7 +394,6 @@ with audiences and help brands grow.
 <div class="skill">Social Media Ads</div>
 <div class="skill">YouTube Content</div>
 <div class="skill">Explainer Videos</div>
-
 </div>
 
 </section>
@@ -284,19 +402,44 @@ with audiences and help brands grow.
 
 <h2>🎨 Featured Projects</h2>
 
-<div class="skills">
+<!-- Real project cards linking directly to your Project images -->
+<div class="projects-grid">
 
-<div class="skill">Brand Promotion Videos</div>
+<div class="project-card">
+<img src="Project1.png" alt="Brand Promotion">
+<h3>Brand Promotion Videos</h3>
+<p>Eye-catching marketing visuals designed to maximize target audience engagement.</p>
+</div>
 
-<div class="skill">Motion Graphics Reels</div>
+<div class="project-card">
+<img src="Project2.png" alt="Motion Graphics Reels">
+<h3>Motion Graphics Reels</h3>
+<p>Dynamic movement styles seamlessly tailored around audio tempos.</p>
+</div>
 
-<div class="skill">Logo Animation</div>
+<div class="project-card">
+<img src="Project3.png" alt="Logo Animation">
+<h3>Logo Animation</h3>
+<p>Giving brand identities life with creative introductory dynamic motion layouts.</p>
+</div>
 
-<div class="skill">Social Media Ads</div>
+<div class="project-card">
+<img src="Project4.png" alt="Social Media Ads">
+<h3>Social Media Ads</h3>
+<p>High conversion creative compositions geared specifically for online marketing campaigns.</p>
+</div>
 
-<div class="skill">YouTube Promos</div>
+<div class="project-card">
+<img src="Project5.png" alt="YouTube Promos">
+<h3>YouTube Promos</h3>
+<p>Stunning transitions and energetic pacing structures to hook viewers immediately.</p>
+</div>
 
-<div class="skill">Explainer Videos</div>
+<div class="project-card">
+<img src="Project6.png" alt="Explainer Videos">
+<h3>Explainer Videos</h3>
+<p>Breaking down complex technical procedures into clean, highly readable graphics.</p>
+</div>
 
 </div>
 
