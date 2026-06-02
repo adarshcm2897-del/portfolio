@@ -1,26 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Adarsh C Manoharan | Multi Media Designer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adarsh C Manoharan | Motion Graphic Designer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Patrick Hand', cursive;
+background:#0d47a1;
+color:white;
+background-image:
+radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 1px, transparent 1px),
+radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04) 1px, transparent 1px);
+background-size:20px 20px;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:22px;
+color:#ccc;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:#ff4d4d;
+color:white;
+text-decoration:none;
+border-radius:5px;
+}
+
+section{
+padding:60px 10%;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.video{
+max-width:900px;
+margin:auto;
+}
+
+.video iframe{
+width:100%;
+height:500px;
+border:none;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+.skill{
+background:#222;
+padding:10px 20px;
+border-radius:30px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+}
+</style>
 </head>
+
 <body>
-    <h1>Adarsh C Manoharan</h1>
-    <h2>Multi Media Designer</h2>
 
-    <p>Welcome to my portfolio website.</p>
+<div class="hero">
+<h1>Adarsh C Manoharan</h1>
+<p>Motion Graphic Designer | Video Editor</p>
+<a class="btn" href="#showreel">View Showreel</a>
+</div>
 
-    <h3>Skills</h3>
-    <ul>
-        <li>After Effects</li>
-        <li>Premiere Pro</li>
-        <li>Motion Graphics</li>
-        <li>Video Editing</li>
-        <li>Graphic Design</li>
-        <li>Illustration</li>
-        <li>Blender</li>
-    </ul>
+<section id="showreel">
+<h2>Showreel</h2>
 
-    <h3>Contact</h3>
-    <p>Phone: 8921860180</p>
+<div class="video">
+<iframe src="https://youtu.be/sjjXXbiSRjk"></iframe>
+</div>
+</section>
+
+<section>
+<h2>Skills</h2>
+
+<div class="skills">
+<div class="skill">After Effects</div>
+<div class="skill">Premiere Pro</div>
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Motion Graphics</div>
+<div class="skill">Video Editing</div>
+</div>
+
+</section>
+
+<section>
+<h2>About Me</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;">
+Creative Motion Graphic Designer specializing in social media ads,
+promotional videos, animation, and visual storytelling.
+</p>
+
+</section>
+
+<section>
+<h2>Contact</h2>
+
+<p style="text-align:center;">
+📞 8921860180
+</p>
+
+</section>
+
+<footer>
+© 2026 Adarsh C Manoharan
+</footer>
+
 </body>
 </html>
