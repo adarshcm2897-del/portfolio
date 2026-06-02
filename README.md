@@ -1,2 +1,2 @@
 # portfolio
-Multi Media Designer Portfolio
+Motion Graphic Designer Portfolio
