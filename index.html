@@ -16,11 +16,68 @@ scroll-behavior:smooth;
 body {
 margin: 0;
 font-family: 'Patrick Hand', cursive;
-background: transparent; /* Changed to transparent so your background video is completely visible */
+background: transparent; 
 color: white;
 overflow-x: hidden;
 }
 
+/* --- GLASS & BEVEL UTILITIES --- */
+/* Premium Glassmorphism base with structural top-left white border bevel & drop shadow */
+.glass-panel {
+background: rgba(255, 255, 255, 0.06) !important;
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+border-right: 2px solid rgba(255, 255, 255, 0.1) !important;
+border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+    0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+}
+
+/* Glass look applied specifically to typography with a crystal embossed bevel effect */
+.glass-text {
+color: #ffffff;
+text-shadow: 
+    -1px -1px 1px rgba(255, 255, 255, 0.7), 
+    1px 1px 1px rgba(0, 0, 0, 0.8),
+    2px 4px 10px rgba(0, 0, 0, 0.4);
+position: relative;
+display: inline-block;
+}
+
+/* --- SHINE ANIMATION ENGINE --- */
+/* Reflection shine overlay effect */
+.shine-effect {
+position: relative;
+overflow: hidden;
+}
+
+.shine-effect::after {
+content: '';
+position: absolute;
+top: -50%;
+left: -60%;
+width: 30%;
+height: 200%;
+background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    rgba(255, 255, 255, 0) 100%
+);
+transform: rotate(25deg);
+animation: movingShine 4s infinite ease-in-out;
+}
+
+@keyframes movingShine {
+0% { left: -60%; }
+30% { left: 140%; }
+100% { left: 140%; }
+}
+
+/* --- EXISTING LAYOUT UPGRADES --- */
 .hero{
 height:100vh;
 display:flex;
@@ -36,8 +93,8 @@ animation:fadeIn 2s ease;
 font-size:80px;
 margin-bottom:10px;
 letter-spacing:4px;
-text-shadow:3px 3px 0 rgba(255,255,255,0.2);
 animation:float 4s ease-in-out infinite;
+padding: 10px 20px;
 }
 
 .hero p{
@@ -49,19 +106,25 @@ margin:5px 0;
 display:inline-block;
 margin:10px;
 padding:14px 28px;
-background:transparent;
-border:3px solid white;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(5px);
+border-top: 2px solid rgba(255,255,255,0.5);
+border-left: 2px solid rgba(255,255,255,0.5);
+border-right: 2px solid rgba(255,255,255,0.1);
+border-bottom: 2px solid rgba(255,255,255,0.1);
 color:white;
 text-decoration:none;
 border-radius:50px;
 font-size:22px;
 transition:all .3s ease;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .btn:hover{
 background:white;
 color:#0b3d91;
 transform:translateY(-4px);
+box-shadow: 0 8px 20px rgba(255,255,255,0.3);
 }
 
 section{
@@ -72,7 +135,7 @@ animation:fadeUp 1s ease;
 h2{
 text-align:center;
 font-size:42px;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
 .video{
@@ -83,9 +146,14 @@ margin:auto;
 .video iframe{
 width:100%;
 height:550px;
-border:none;
-border-radius:20px;
+border: none;
 box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+/* Glass Frame Wrapper for Iframe Video Box */
+.video-glass-frame {
+padding: 15px;
+border-radius: 28px;
 }
 
 .skills{
@@ -96,17 +164,15 @@ gap:15px;
 }
 
 .skill{
-background:rgba(255,255,255,0.1);
 padding:12px 22px;
 border-radius:30px;
 font-size:22px;
-border:2px solid rgba(255,255,255,0.2);
 transition:.3s;
 }
 
 .skill:hover{
-transform:scale(1.1);
-background:rgba(255,255,255,0.2);
+transform:scale(1.1) translateY(-2px);
+background:rgba(255,255,255,0.15) !important;
 }
 
 .about{
@@ -115,19 +181,27 @@ max-width:900px;
 margin:auto;
 font-size:24px;
 line-height:1.8;
+padding: 30px;
+border-radius: 20px;
 }
 
 .contact{
 text-align:center;
 font-size:24px;
 line-height:1.8;
+max-width: 500px;
+margin: 0 auto;
+padding: 30px;
+border-radius: 20px;
 }
 
 footer{
 text-align:center;
 padding:30px;
-background:rgba(0,0,0,0.2);
+background:rgba(0,0,0,0.4);
+backdrop-filter: blur(10px);
 font-size:20px;
+border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* LEFT TO RIGHT TICKER STYLING */
@@ -135,19 +209,17 @@ font-size:20px;
 width: 120%;
 margin-left: -10%;
 overflow: hidden;
-background: rgba(255,255,255,0.03);
 padding: 25px 0;
 display: flex;
-border-top: 2px dashed rgba(255,255,255,0.3);
-border-bottom: 2px dashed rgba(255,255,255,0.3);
 margin-top: 40px;
 }
 
 .ticker-track {
 display: flex;
-gap: 20px;
+gap: 25px;
 animation: scrollLTR 25s linear infinite;
 width: max-content;
+padding: 10px;
 }
 
 .ticker-wrap:hover .ticker-track {
@@ -158,9 +230,7 @@ animation-play-state: paused;
 width: 280px;
 height: 165px;
 object-fit: cover;
-border-radius: 12px;
-border: 2px solid white;
-box-shadow: 4px 4px 0px rgba(255,255,255,0.15);
+border-radius: 14px;
 flex-shrink: 0;
 transition: transform 0.2s ease;
 }
@@ -173,31 +243,31 @@ transform: scale(1.05);
 .projects-grid {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 30px;
+gap: 35px;
 max-width: 1200px;
 margin: 0 auto;
 }
 
 .project-card {
-border: 3px dashed #fff;
 padding: 20px;
-border-radius: 15px;
-background: rgba(255,255,255,0.05);
-transition: transform 0.3s ease, background 0.3s ease;
+border-radius: 22px;
+transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 text-align: left;
 }
 
 .project-card:hover {
-transform: translateY(-5px);
-background: rgba(255,255,255,0.1);
+transform: translateY(-8px);
+background: rgba(255, 255, 255, 0.12) !important;
+box-shadow: 
+    inset 1px 1px 4px rgba(255, 255, 255, 0.4),
+    0 12px 40px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 .project-card img {
 width: 100%;
 height: 180px;
 object-fit: cover;
-border-radius: 10px;
-border: 2px solid #fff;
+border-radius: 12px;
 margin-bottom: 15px;
 }
 
@@ -208,7 +278,7 @@ font-size: 24px;
 
 .project-card p {
 font-size: 18px;
-color: #ddd;
+color: #eee;
 margin-bottom: 15px;
 }
 
@@ -249,7 +319,7 @@ transform:translateY(0);
 /* Left to Right seamless sliding keyframes */
 @keyframes scrollLTR {
 0% {
-transform: translateX(calc(-50% - 10px));
+transform: translateX(calc(-50% - 12px));
 }
 100% {
 transform: translateX(0);
@@ -257,27 +327,21 @@ transform: translateX(0);
 }
 
 @media(max-width:768px){
-
 .hero h1{
 font-size:50px;
 }
-
 .hero p{
 font-size:20px;
 }
-
 .video iframe{
 height:250px;
 }
-
 h2{
 font-size:34px;
 }
-
 .skill{
 font-size:18px;
 }
-
 .ticker-img {
 width: 200px;
 height: 120px;
@@ -292,41 +356,32 @@ height: 120px;
 <!-- BACKGROUND VIDEO LOOP INTEGRATION -->
 <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background-color: #0b3d91;">
     <video autoplay loop muted playsinline style="min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; opacity: 0.25;">
-        <!-- Secure reference to your file name containing spaces -->
         <source src="bg for portfolio.mp4" type="video/mp4">
     </video>
 </div>
 
 <div class="hero">
-
-<h1>ADARSH C MANOHARAN</h1>
-
-<p>✏️ Motion Graphic Designer</p>
-<p>🎬 Video Editor</p>
-<p>🎨 Visual Storyteller</p>
-
-<p style="font-size:30px;">
+<h1 class="glass-text shine-effect">ADARSH C MANOHARAN</h1>
+<p class="glass-text">✏️ Motion Graphic Designer</p>
+<p class="glass-text">🎬 Video Editor</p>
+<p class="glass-text">🎨 Visual Storyteller</p>
+<p class="glass-text" style="font-size:30px; margin-top:15px; font-style:italic;">
 "Every frame tells a story."
 </p>
-
-<div>
+<div style="margin-top: 20px;">
 <a class="btn" href="#showreel">View Showreel</a>
 <a class="btn" href="CV.pdf" target="_blank">Download CV</a>
 </div>
-
 </div>
 
 <section id="showreel">
-
-<h2>🎬 Showreel</h2>
-
-<div class="video">
+<h2 class="glass-text">🎬 Showreel</h2>
+<div class="video video-glass-frame glass-panel">
 <iframe
 width="100%"
 height="550"
-src="https://www.youtube.com/embed/sjjXXbiXXbiSRjk?rel=0"
+src="https://www.youtube.com/embed/sjjXXbiSRjk?rel=0"
 title="Adarsh Motion Graphics Showreel"
-frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 referrerpolicy="strict-origin-when-cross-origin"
 allowfullscreen>
@@ -334,141 +389,117 @@ allowfullscreen>
 </div>
 
 <!-- LEFT TO RIGHT TICKER ATTACHED UNDER THE YOUTUBE PLAYER -->
-<div class="ticker-wrap">
+<div class="ticker-wrap glass-panel">
 <div class="ticker-track">
 <!-- Set 1 -->
-<img src="Project1.png" class="ticker-img" alt="Reel Shot 1">
-<img src="Project2.png" class="ticker-img" alt="Reel Shot 2">
-<img src="Project3.png" class="ticker-img" alt="Reel Shot 3">
-<img src="Project4.png" class="ticker-img" alt="Reel Shot 4">
-<img src="Project5.png" class="ticker-img" alt="Reel Shot 5">
-<img src="Project6.png" class="ticker-img" alt="Reel Shot 6">
+<img src="Project1.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 1">
+<img src="Project2.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 2">
+<img src="Project3.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 3">
+<img src="Project4.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 4">
+<img src="Project5.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 5">
+<img src="Project6.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 6">
 
-<!-- Set 2 (Duplicate for Seamless Infinite Loop) -->
-<img src="Project1.png" class="ticker-img" alt="Reel Shot 1 Copy">
-<img src="Project2.png" class="ticker-img" alt="Reel Shot 2 Copy">
-<img src="Project3.png" class="ticker-img" alt="Reel Shot 3 Copy">
-<img src="Project4.png" class="ticker-img" alt="Reel Shot 4 Copy">
-<img src="Project5.png" class="ticker-img" alt="Reel Shot 5 Copy">
-<img src="Project6.png" class="ticker-img" alt="Reel Shot 6 Copy">
+<!-- Set 2 -->
+<img src="Project1.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 1 Copy">
+<img src="Project2.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 2 Copy">
+<img src="Project3.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 3 Copy">
+<img src="Project4.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 4 Copy">
+<img src="Project5.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 5 Copy">
+<img src="Project6.png" class="ticker-img glass-panel shine-effect" alt="Reel Shot 6 Copy">
 </div>
 </div>
-
 </section>
 
 <section>
-
-<h2>🛠 Skills</h2>
-
+<h2 class="glass-text">🛠 Skills</h2>
 <div class="skills">
-<div class="skill">After Effects</div>
-<div class="skill">Premiere Pro</div>
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">Motion Graphics</div>
-<div class="skill">Video Editing</div>
+<div class="skill glass-panel">After Effects</div>
+<div class="skill glass-panel">Premiere Pro</div>
+<div class="skill glass-panel">Photoshop</div>
+<div class="skill glass-panel">Illustrator</div>
+<div class="skill glass-panel">Motion Graphics</div>
+<div class="skill glass-panel">Video Editing</div>
 </div>
-
 </section>
 
 <section>
-
-<h2>👨‍💻 About Me</h2>
-
-<div class="about">
+<h2 class="glass-text">👨‍💻 About Me</h2>
+<div class="about glass-panel">
 Creative Motion Graphic Designer specializing in social media advertisements,
 promotional videos, logo animation, visual storytelling and engaging digital content.
 Passionate about transforming ideas into compelling visual experiences that connect
 with audiences and help brands grow.
 </div>
-
 </section>
 
 <section>
-
-<h2>🚀 Services</h2>
-
+<h2 class="glass-text">🚀 Services</h2>
 <div class="skills">
-<div class="skill">Motion Graphics</div>
-<div class="skill">Video Editing</div>
-<div class="skill">Logo Animation</div> 
-<div class="skill">Social Media Ads</div>
-<div class="skill">YouTube Content</div>
-<div class="skill">Explainer Videos</div>
+<div class="skill glass-panel">Motion Graphics</div>
+<div class="skill glass-panel">Video Editing</div>
+<div class="skill glass-panel">Logo Animation</div> 
+<div class="skill glass-panel">Social Media Ads</div>
+<div class="skill glass-panel">YouTube Content</div>
+<div class="skill glass-panel">Explainer Videos</div>
 </div>
-
 </section>
 
 <section>
-
-<h2>🎨 Featured Projects</h2>
-
-<!-- Real project cards linking directly to your Project images -->
+<h2 class="glass-text">🎨 Featured Projects</h2>
 <div class="projects-grid">
 
-<div class="project-card">
-<img src="Project1.png" alt="Brand Promotion">
+<div class="project-card glass-panel shine-effect">
+<img src="Project1.png" class="glass-panel" alt="Brand Promotion">
 <h3>Brand Promotion Videos</h3>
 <p>Eye-catching marketing visuals designed to maximize target audience engagement.</p>
 </div>
 
-<div class="project-card">
-<img src="Project2.png" alt="Motion Graphics Reels">
+<div class="project-card glass-panel shine-effect">
+<img src="Project2.png" class="glass-panel" alt="Motion Graphics Reels">
 <h3>Motion Graphics Reels</h3>
 <p>Dynamic movement styles seamlessly tailored around audio tempos.</p>
 </div>
 
-<div class="project-card">
-<img src="Project3.png" alt="Logo Animation">
+<div class="project-card glass-panel shine-effect">
+<img src="Project3.png" class="glass-panel" alt="Logo Animation">
 <h3>Logo Animation</h3>
 <p>Giving brand identities life with creative introductory dynamic motion layouts.</p>
 </div>
 
-<div class="project-card">
-<img src="Project4.png" alt="Social Media Ads">
+<div class="project-card glass-panel shine-effect">
+<img src="Project4.png" class="glass-panel" alt="Social Media Ads">
 <h3>Social Media Ads</h3>
 <p>High conversion creative compositions geared specifically for online marketing campaigns.</p>
 </div>
 
-<div class="project-card">
-<img src="Project5.png" alt="YouTube Promos">
+<div class="project-card glass-panel shine-effect">
+<img src="Project5.png" class="glass-panel" alt="YouTube Promos">
 <h3>YouTube Promos</h3>
 <p>Stunning transitions and energetic pacing structures to hook viewers immediately.</p>
 </div>
 
-<div class="project-card">
-<img src="Project6.png" alt="Explainer Videos">
+<div class="project-card glass-panel shine-effect">
+<img src="Project6.png" class="glass-panel" alt="Explainer Videos">
 <h3>Explainer Videos</h3>
 <p>Breaking down complex technical procedures into clean, highly readable graphics.</p>
 </div>
 
 </div>
-
 </section>
 
 <section>
-
-<h2>📞 Contact</h2>
-
-<div class="contact">
-
+<h2 class="glass-text">📞 Contact</h2>
+<div class="contact glass-panel">
 <p>📱 8921860180</p>
-
 <p>📍 Thalassery, Kerala</p>
-
 <p>📧 adarshcm2897@gmail.com</p>
-
 </div>
-
 </section>
 
 <footer>
-
 © 2026 Adarsh C Manoharan | Motion Graphic Designer
-
 </footer>
 
 </body>
-
 </html>
 
