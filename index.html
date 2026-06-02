@@ -16,20 +16,18 @@ scroll-behavior:smooth;
 body {
 margin: 0;
 font-family: 'Patrick Hand', cursive;
-/* Fallback solid color matching the deep red shadow area */
 background-color: #8B0000; 
 color: white;
 overflow-x: hidden;
 }
 
-/* --- GLASS & BEVEL UTILITIES (UPDATED WITH IMAGE PALETTE TINTS) --- */
-/* Glassmorphism base with a subtle warm orange-tinted background blur */
+/* --- GLASS & BEVEL UTILITIES --- */
 .glass-panel {
-background: rgba(139, 0, 0, 0.15) !important; /* Tinted with deep crimson */
+background: rgba(139, 0, 0, 0.15) !important; 
 backdrop-filter: blur(15px);
 -webkit-backdrop-filter: blur(15px);
-border-top: 2px solid rgba(255, 165, 0, 0.4) !important; /* Amber highlighting on top edge */
-border-left: 2px solid rgba(255, 165, 0, 0.4) !important; /* Amber highlighting on left edge */
+border-top: 2px solid rgba(255, 165, 0, 0.4) !important; 
+border-left: 2px solid rgba(255, 165, 0, 0.4) !important; 
 border-right: 2px solid rgba(139, 0, 0, 0.2) !important;
 border-bottom: 2px solid rgba(139, 0, 0, 0.2) !important;
 box-shadow: 
@@ -37,15 +35,37 @@ box-shadow:
     0 12px 40px 0 rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Glass look applied specifically to typography with a warm glow */
 .glass-text {
 color: #ffffff;
 text-shadow: 
     -1px -1px 1px rgba(255, 220, 180, 0.5), 
     1px 1px 2px rgba(0, 0, 0, 0.9),
-    0 0 12px rgba(255, 69, 0, 0.4); /* Fire glow effect */
+    0 0 12px rgba(255, 69, 0, 0.4); 
 position: relative;
 display: inline-block;
+}
+
+/* --- HERO PROFILE IMAGE OPTIMIZED FOR BLENDED PNG --- */
+.profile-container {
+margin-bottom: 15px;
+display: inline-block;
+position: relative;
+animation: float 4s ease-in-out infinite; /* Syncs floating movement with the name */
+}
+
+.profile-pic {
+width: 170px;
+height: 170px;
+object-fit: contain; /* Set to contain to preserve cut-out framing structural integrity */
+display: block;
+transition: transform 0.3s ease, filter 0.3s ease;
+/* Subtle drop shadow to lift your cut-out PNG off the background seamlessly */
+filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.6));
+}
+
+.profile-container:hover .profile-pic {
+transform: scale(1.05);
+filter: drop-shadow(0px 12px 20px rgba(255, 69, 0, 0.4)); /* Subtle ambient amber glow on hover */
 }
 
 /* --- SHINE ANIMATION ENGINE --- */
@@ -93,7 +113,6 @@ animation:fadeIn 2s ease;
 font-size:80px;
 margin-bottom:10px;
 letter-spacing:4px;
-animation:float 4s ease-in-out infinite;
 padding: 10px 20px;
 }
 
@@ -102,7 +121,6 @@ font-size:26px;
 margin:5px 0;
 }
 
-/* Buttons redesigned with a sleek fiery amber accent hover */
 .btn{
 display:inline-block;
 margin:10px;
@@ -122,7 +140,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .btn:hover{
-background: linear-gradient(135deg, #FF4500, #FFA500); /* Image palette matching orange-red hover gradient */
+background: linear-gradient(135deg, #FF4500, #FFA500); 
 color: white;
 transform:translateY(-4px);
 box-shadow: 0 8px 25px rgba(255,69,0,0.5);
@@ -173,7 +191,7 @@ transition:.3s;
 
 .skill:hover{
 transform:scale(1.1) translateY(-2px);
-background:rgba(255, 140, 0, 0.25) !important; /* Highlights with studio amber on hover */
+background:rgba(255, 140, 0, 0.25) !important; 
 }
 
 .about{
@@ -199,7 +217,7 @@ border-radius: 20px;
 footer{
 text-align:center;
 padding:30px;
-background:rgba(20, 0, 0, 0.7); /* Deep dark maroon footer */
+background:rgba(20, 0, 0, 0.7); 
 backdrop-filter: blur(10px);
 font-size:20px;
 border-top: 1px solid rgba(255, 69, 0, 0.2);
@@ -334,6 +352,10 @@ font-size:50px;
 .hero p{
 font-size:20px;
 }
+.profile-pic {
+width: 140px;
+height: 140px;
+}
 .video iframe{
 height:250px;
 }
@@ -354,15 +376,19 @@ height: 120px;
 
 <body>
 
-<!-- CINEMATIC RED TO AMBER GRADIENT MASK (MATCHES IMAGE PALETTE) -->
+<!-- CINEMATIC RED TO AMBER GRADIENT MASK -->
 <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: linear-gradient(135deg, #4A0000 0%, #8B0000 40%, #FF4500 80%, #FFA500 100%);">
-    <!-- Background Video layer remains active with an optimized opacity blend over the new gradient palette -->
     <video autoplay loop muted playsinline style="min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; opacity: 0.22;">
         <source src="bg for portfolio.mp4" type="video/mp4">
     </video>
 </div>
 
 <div class="hero">
+<!-- UPDATED BLENDED PNG CONTAINER -->
+<div class="profile-container">
+    <img src="ADARSH.png" class="profile-pic" alt="Adarsh C Manoharan Portrait">
+</div>
+
 <h1 class="glass-text shine-effect">ADARSH C MANOHARAN</h1>
 <p class="glass-text">✏️ Motion Graphic Designer</p>
 <p class="glass-text">🎬 Video Editor</p>
