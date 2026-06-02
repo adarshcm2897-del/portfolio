@@ -47,25 +47,24 @@ display: inline-block;
 
 /* --- HERO PROFILE IMAGE OPTIMIZED FOR BLENDED PNG --- */
 .profile-container {
-margin-bottom: 35px;
+margin-bottom: 15px;
 display: inline-block;
 position: relative;
-animation: float 4s ease-in-out infinite; /* Syncs floating movement with the name */
+animation: float 4s ease-in-out infinite; 
 }
 
 .profile-pic {
-width: 300px;
-height: 300px;
-object-fit: contain; /* Set to contain to preserve cut-out framing structural integrity */
+width: 170px;
+height: 170px;
+object-fit: contain; 
 display: block;
 transition: transform 0.3s ease, filter 0.3s ease;
-/* Subtle drop shadow to lift your cut-out PNG off the background seamlessly */
 filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.6));
 }
 
 .profile-container:hover .profile-pic {
 transform: scale(1.05);
-filter: drop-shadow(0px 12px 20px rgba(255, 69, 0, 0.4)); /* Subtle ambient amber glow on hover */
+filter: drop-shadow(0px 12px 20px rgba(255, 69, 0, 0.4)); 
 }
 
 /* --- SHINE ANIMATION ENGINE --- */
@@ -384,7 +383,7 @@ height: 120px;
 </div>
 
 <div class="hero">
-<!-- UPDATED BLENDED PNG CONTAINER -->
+<!-- BLENDED PNG CONTAINER -->
 <div class="profile-container">
     <img src="ADARSH.png" class="profile-pic" alt="Adarsh C Manoharan Portrait">
 </div>
@@ -396,8 +395,10 @@ height: 120px;
 <p class="glass-text" style="font-size:30px; margin-top:15px; font-style:italic;">
 "Every frame tells a story."
 </p>
+<!-- UPDATED HERO BUTTON ROW WITH BEHANCE INTEGRATION -->
 <div style="margin-top: 20px;">
 <a class="btn" href="#showreel">View Showreel</a>
+<a class="btn" href="https://www.behance.net" target="_blank">Behance Portfolio</a>
 <a class="btn" href="CV.pdf" target="_blank">Download CV</a>
 </div>
 </div>
